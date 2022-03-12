@@ -1,2 +1,0 @@
-this is a backup for my learning stuff at YouTube.com
-Video link: https://www.youtube.com/watch?v=ArTVfdHOB-M&t=619s(Magic Navigation Menu Indicator using Html CSS & Javascript | Curve Outside Effects)
