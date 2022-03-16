@@ -22,10 +22,19 @@
     --tran-05: all 0.5s ease;
 }
 body{
-    height: auto;
-    background-image:url(background.png);
+    height: 100vh;
+    background:var(--body-color);
+    transition: var(--tran-04);
 }
 
+body .dark{
+    --body-color: #18191a;
+    --side-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
 /* =====Sidebar====== */
 .sidebar{
     position: fixed;
@@ -35,13 +44,26 @@ body{
     width: 250px;
     padding: 10px 14px;
     background: var(--side-color);
+    transition: var(--tran-05);
 }
+
+.sidebar .close{
+    width:88px;
+}
+    
 
 /* ====Resuable CSS====== */
 .sidebar .text{
     font-size: 16px;
     font-weight: 500;
-    color:var(--text-color)
+    color:var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar .close .text{
+    opacity: 0;
 }
 .sidebar .image{
     min-width: 60px;
@@ -69,7 +91,7 @@ body{
 .sidebar li .icons,
 .sidebar li .text{
     color: var(--text-color);
-    transition: var(--tran-03);
+    transition: var(--tran-02);
 }
 
 .sidebar header{
@@ -141,4 +163,69 @@ body{
 .sidebar li a:hover .icons,
 .sidebar li a:hover text{
     color: var(--side-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* =====menu bar===== */
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode i{
+    position: absolute;
+}
+
+.menu-bar .mode i .sun{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position:absolute;
+    display: flex;
+    right:20px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--side-color);
+    transition: var(--tran-03);
+}
+
+body .dark .switch::before{
+    left: 25px;
 }
